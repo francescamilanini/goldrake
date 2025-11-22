@@ -1,12 +1,33 @@
+/* CSS di Francesca Milanini per il sito su Goldrake */
+
+/*  Con una regola generale sul border-box definisco la dimensione finale sullo schermo,
+    DESIDERATA: layout responsive
+*/
+
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
-    margin-left: 250px;  /* Spazio per menu laterale su desktop */
+    margin-left: 200px;             /* spazio per menu laterale su desktop + 30px */
     background-color: #f5f5f5;
     font-family: Arial, sans-serif;
 }
 
-/* === CONTENITORE === */
+.menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 170px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1a4d8f 0%, #0d2847 100%);
+    padding: 40px 0;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    /* AGGIUNTA: Rendi la transizione esplicita (anche se già nel media query) */
+    transition: left 0.3s ease;
+}
+
 .contenitore {
     width: 90%;
     max-width: 1000px;
@@ -20,22 +41,25 @@ img {
     height: auto;
 }
 
-/* === HAMBURGER (nascosto su desktop) === */
+/* HAMBURGER nascosto su desktop */
 .hamburger {
     display: none;
 }
 
-/* === MENU LATERALE DESKTOP con colori Goldrake === */
+/* MENU LATERALE DESKTOP con colori Goldrake */
+
 .menu {
     position: fixed;
     left: 0;
     top: 0;
-    width: 250px;
+    width: 170px;
     height: 100vh;
-    background: linear-gradient(180deg, #1a4d8f 0%, #0d2847 100%); /* Blu Goldrake */
+    background: linear-gradient(180deg, #1a4d8f 0%, #0d2847 100%);
     padding: 40px 0;
     box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     z-index: 999;
+    /* AGGIUNTA: Rendi la transizione esplicita (anche se già nel media query) */
+    transition: left 0.3s ease;                             /* NON SO COSA SIA */
 }
 
 .menu ul {
@@ -59,7 +83,7 @@ img {
     border-left-color: #ffeb3b; /* Giallo accento */
 }
 
-/* === RESPONSIVE: SMARTPHONE === */
+/* responsive per smartphone */
 @media (max-width: 768px) {
     /* Mostra hamburger */
     .hamburger {
@@ -77,23 +101,22 @@ img {
         border-radius: 5px;
     }
     
-    /* Menu nascosto di default su mobile */
+    /* nascondo il menu su mobile spostandolo a sinistra di tutta la sua larghezza */
     .menu {
-        left: -250px;  /* ⬅️ IMPORTANTE: nascosto fuori schermo */
+        left: -170px;
         transition: left 0.3s;
     }
     
-    /* Menu aperto quando clicchi hamburger */
+    /* Menu aperto quando si clicca sul menu ad hamburger */
     .menu.open {
         left: 0;
     }
     
-    /* Body senza margine su mobile */
+    /* body senza margine su mobile */
     body {
         margin-left: 0;
     }
     
-    /* Contenitore in colonna */
     .contenitore {
         flex-direction: column;
     }
@@ -103,7 +126,7 @@ img {
     }
 }
 
-/* === RESPONSIVE: TABLET === */
+/* responsive per tablet */
 @media (max-width: 1024px) and (min-width: 769px) {
     .contenitore {
         width: 95%;
