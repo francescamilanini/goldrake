@@ -1,32 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <!-- web design responsive, visualizzazione mobile:
+     larghezza dell'area visibile pari alla larghezza dello schermo del dispositivo in pixel
+     initial-scale=1.0: Imposta il livello di zoom iniziale a 1.0 = nessuno zoom
+  -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UFO Robot Goldrake - Tributo a una leggenda: homepage</title>
   <meta name="description" content="Sito dedicato a UFO Robot Goldrake, l'eroe venuto dallo spazio che ha segnato un'intera generazione">
   <meta name="author" content="Francesca Milanini">
   <link rel="stylesheet" href="goldrake_style.css">
+
+  <meta property="og:title" content="UFO Robot Goldrake - Tributo a una leggenda: homepage">
+  <meta property="og:type" content="website">
+  
+  <!-- messi a titolo di esempio per l'esercizio (sito non online se non su URL non dedicate) -->
+  <meta property="og:url" content="https://www.goldrake.it/index.html">
+  <meta property="og:image" content="https://www.goldrake.it/img/Depositphotos_699868574_XL.jpg">
+  
+  <meta property="og:description" content="Sito dedicato a UFO Robot Goldrake, l'eroe venuto dallo spazio che ha segnato un'intera generazione">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="UFO Robot Goldrake">
 </head>
 
-<button class="hamburger" onclick="toggleMenu()">☰</button>
+<body>
+
+<button class="hamburger">☰</button> 
 
 <nav class="menu">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="storia_del_fumetto.html">La storia di UFO Robot Goldrake</a></li>
-      <li><a href="storia_nel_fumetto.html">Riassunto e analisi della trama</a></li>
-      <li><a href="personaggi.html">I personaggi</a></li>
-      <li><a href="nemici_e_battaglie.html">I nemici e le battaglie</a></li>
-      <li><a href="aspetti_culturali.html">Impatto culturale</a></li>
-      <li><a href="https://www.raiplay.it/programmi/goldrake">Gli episodi su Raiplay</a></li>
+      <li><a href="index.html" class="link-mirino">Home</a></li>
+      <li><a href="storia_del_cartone_animato.html" class="link-mirino">La storia di UFO Robot Goldrake</a></li>
+      <li><a href="trama_del_cartone_animato.html" class="link-mirino">Riassunto e analisi della trama</a></li>
+      <li><a href="personaggi.html" class="link-mirino">I personaggi</a></li>
+      <li><a href="nemici_e_battaglie.html" class="link-mirino">I nemici e le battaglie</a></li>
+      <li><a href="aspetti_culturali.html" class="link-mirino">Aspetti culturali e curiosit&agrave;</a></li>
+      <li><a href="https://www.raiplay.it/programmi/goldrake" class="link-mirino">Gli episodi su Raiplay</a></li>
     </ul>
 </nav>
 
-    <h1>UFO Robot Goldrake: tributo a una leggenda"</h1>
-    <img src="Depositphotos_699868574_XL.jpg">
-    <em>Credits: questa foto (kuremo /Depositphotos.com) è concessa in licenza per uso editoriale</em>.
-    <br>Non può essere riutilizzata altrove senza autorizzazione della Depositphotos.com<br>
+<!-- tag semantico: -->
+<header>
+<div class="contenitore">
+
+<h1>UFO Robot Goldrake: tributo a una leggenda</h1>
+
+<figure class="main-image-figure">
+  <img src="img/Depositphotos_699868574_XL.jpg" alt="testa della statua giapponese di Goldrake" class="main-image-figure">
+  <figcaption>
+    <em>Credits: questa foto (kuremo /Depositphotos.com) &egrave; concessa in licenza per uso editoriale</em>.
+    <br>Non pu&ograve; essere riutilizzata altrove senza autorizzazione della Depositphotos.com<br>
     Tokyo, maggio 2024: particolare della grande statua dell'UFO Robot Gurendaiz&#257; (nome originale giapponese).
+  </figcaption>
+</figure>
+</header>
+
+<div class="sezione-info">
+    <div class="info-sito">
+    <h2>Mini sito web dedicato ad Ufo Robot Goldrake</h2><br>
+      Esercizio d'uso di HTML e CSS<br>
+      Lab Linguaggi per il Web<br>
+      Master in Digital Humanities UNIMI<br>
+    <time datetime="2025-11-25">25 Novembre 2025</time>
+  </div>
+
+  <div class="audio-container">
+    <p class="audio-label">Ascolta la mitica sigla di Goldrake:</p>
+    <audio controls muted loop>
+    <source src="audio/ufo_robot.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l’elemento audio.
+    </audio>
+  </div>
+
+  <div class="bannerino">
+    <img src = "img/freepik_assistant_1763991246613.png" alt="banner promozionale di questo sito">
+  </div>
+</div>
+</div>
+
+<footer>
+        Autore: Francesca Milanini. Info:<br>
+  <address>
+        <a href="mailto:francesca.milanini@fisica.unimi.it" class="link-laser">francesca.milanini@fisica.unimi.it</a>
+  </address>   
+  <time datetime="2025-11-25">25 novembre 2025</time>
+  <br><br><br>
+  <p>Immagine dello sfondo dei titoli e del footer<br>
+  by rawpixel.com, Freepik<br>
+  e banner piccolo by <a href="https://www.freepik.com/" class="link-laser">Freepik</a> AI
+  </p>
+</footer>
+
+<script src="menu.js"></script>
 </body>
 </html>

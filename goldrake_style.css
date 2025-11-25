@@ -1,52 +1,29 @@
 /* CSS di Francesca Milanini per il sito su Goldrake */
 
-/*  Con una regola generale sul border-box definisco la dimensione finale sullo schermo,
-    DESIDERATA: layout responsive
-*/
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+/*  Con una regola generale sul border-box definisco la dimensione finale sullo schermo. */
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
-    /* margin: 0; */
     padding: 0;
     margin-left: 200px;             /* spazio per menu laterale su desktop + 30px */
     background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    overflow-x: hidden;             /* evita scroll orizzontale */
+    min-height: 100vh;
 }
 
-.menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 170px;
-    height: 100vh;
-    background: linear-gradient(180deg, #1a4d8f 0%, #0d2847 100%);
-    padding: 40px 0;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-    z-index: 999;
-    /* AGGIUNTA: Rendi la transizione esplicita (anche se già nel media query) */
-    transition: left 0.3s ease;
+.sezione-info {
+    padding: 10px; 
+    text-align: margin-left;
 }
 
-.contenitore {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* HAMBURGER nascosto su desktop */
 .hamburger {
     display: none;
 }
 
-/* MENU LATERALE DESKTOP con colori Goldrake */
+/* menu laterale con colori rosso, blu e giallo tipici di Goldrake */
 
 .menu {
     position: fixed;
@@ -55,11 +32,11 @@ img {
     width: 170px;
     height: 100vh;
     background: linear-gradient(180deg, #1a4d8f 0%, #0d2847 100%);
-    padding: 40px 0;
+    padding: 80px 0 40px 0;  /* aumentato padding-top per l'hamburger */
     box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     z-index: 999;
-    /* AGGIUNTA: Rendi la transizione esplicita (anche se già nel media query) */
-    transition: left 0.3s ease;                             /* NON SO COSA SIA */
+    overflow-y: auto;  /* scroll se il menu è troppo lungo */
+    /* transition: left 0.3s ease; */
 }
 
 .menu ul {
@@ -79,56 +56,398 @@ img {
 }
 
 .menu li a:hover {
-    background-color: #d32f2f; /* Rosso Goldrake */
-    border-left-color: #ffeb3b; /* Giallo accento */
+    background-color: #d32f2f; /* rosso Goldrake */
+    border-left-color: #ffeb3b; /* giallo brillante */
+}
+
+.main-image-figure {
+    max-width: 60%; 
+    float: left; 
+    margin: 0 15px 15px 0;
+    overflow: hidden;
+}
+
+.main-image-figure img {
+    display: block;
+    width: 100%;  /* l'immagine si adatta al contenitore */
+    height: auto;
+}
+
+.main-image-figure figcaption {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.sezione-info {
+    overflow: hidden; 
+    padding: 10px; 
+    text-align: center;
+}
+
+.img-personaggi {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.img-a-destra {
+    float: right;
+    max-width: 50%;
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.hint-personaggi {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.link-mirino:hover {
+    cursor: url("img/cursor_red_target_glow_48.png") 24 24, pointer;
+    color: #ffeb3b;
+    text-decoration: none;
+}
+
+.link-laser:hover {
+    cursor: url("img/cursor_red_dot_glow_48.png") 24 24, pointer;
+}
+
+.img-personaggi {
+                float:right;
+                padding-left: 50px;
+                padding-bottom: 50px;
+            }
+
+.sezione-info {
+    overflow: auto; 
+    margin-left: 0;  /* rimosso margine fisso che causava problemi */
+    margin-top: 20px; 
+    padding: 10px;
+    text-align: center;
+}
+
+/*.sezione-info {
+    overflow: auto; 
+    margin-left: 32%; 
+    margin-top: 20px; 
+    text-align: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 999;   /* così non viene coperta da altro 
+}*/
+
+.info-sito, .audio-container, .bannerino {
+    float: none; 
+    margin: 15px auto; 
+}
+
+.info-sito {
+    max-width: 300px;
+}
+
+.audio-container {
+    max-width: 250px; 
+}
+
+.bannerino {
+    /* *** NUOVA REGOLA: Ridisegnare il bannerino con la stessa larghezza *** */
+    max-width: 150px;
+    display: inline-block; /* O mantieni float: left / clear: both */
+    margin: 10px; /* Esempio di margini */
+}
+
+.bannerino img {
+    /* Assicura che l'immagine si adatti perfettamente al nuovo contenitore di 300px */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Titolo della homepage: evito sovrapposizioni con elementi con float */
+h1 {
+    clear: both;
+    /* immagine di rawpixel.com sul sito Freepik: */
+    background-image:url('img/sfondo-estetico-con-effetto-luce-led-al-neon-sfumato.jpg');
+    background-color:rgba(255, 255, 255, 0.95);
+    background-size: cover;    /* immagine coprente h1 */
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #ffeb3b; /* colore del titolo */
+    padding: 25px;
+}
+
+.riquadro-stacco {
+    /* clear: right;
+    margin-top: 20px; */ 
+    height: 140px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
 
 /* responsive per smartphone */
 @media (max-width: 768px) {
-    /* Mostra hamburger */
-    .hamburger {
+    
+    body {
+        margin-left: 0 !important; 
+        margin: 0 !important;     
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    .contenitore {
+        width: 100% !important;
+        max-width: none !important;
+        padding: 10px; 
+        overflow: visible !important;
+    }
+
+    /*.hamburger {
         display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 1000;
-        background-color: #d32f2f; /* Rosso Goldrake */
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        font-size: 24px;
-        cursor: pointer;
-        border-radius: 5px;
+    }*/
+    
+    .hamburger {
+    /* Rende il bottone visibile sul mobile (sovrascrive display: none globale) */
+    display: block !important; 
+    
+    /* Lo fissa in alto a sinistra per la navigazione mobile */
+    position: fixed; 
+    top: 15px;
+    left: 15px;
+    z-index: 1001; /* Aumentato per stare sopra al menu */
+    
+    /* Stile: Grande e Rosso */
+    background-color: #d32f2f; /* Rosso acceso (puoi usare anche il blu #1a4d8f) */
+    color: white;
+    border: none;
+    padding: 12px 18px; /* Rende il bottone più grande */
+    font-size: 28px; /* Rende il simbolo '☰' molto grande */
+    line-height: 1;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Opzionale: assicura che il titolo H1 sia sotto il bottone hamburger */
+    h1 {
+    /* Aggiunge spazio in alto per non nascondere il titolo sotto l'hamburger */
+    padding-top: 70px !important;
+    padding-left: 15px !important; 
+    padding-right: 15px !important;
+    }
+
+    .menu {
+        left: -170px; /* Nasconde il menu fuori dallo schermo (default) */
+        transition: left 0.3s ease;
+        z-index: 1000; /* sotto l'hamburger */
     }
     
-    /* nascondo il menu su mobile spostandolo a sinistra di tutta la sua larghezza */
+    .menu.open {
+        left: 0; /* Mostra il menu quando la classe 'open' è attiva */
+    } 
+
+    /* Spazio per il bottone hamburger sopra il titolo */
+    /*h1 {
+        padding: 60px 25px 25px 60px !important; 
+    }*/
+
+    /* Immagine principale grande e centrata */
+    .main-image-figure {
+        max-width: 95% !important; 
+        float: none !important;               
+        margin: 15px auto !important;
+        display: block !important;
+    }
+
+    /* Colonna di destra: piena larghezza e niente float */
+    .sezione-info {
+        float: none !important; 
+        width: 100% !important; 
+        max-width: 100% !important;
+        margin: 20px 0 !important;
+        padding: 10px !important;
+        text-align: center;
+        display: block !important;
+        clear: both !important; /* assicura che appaia dopo l'immagine */
+    }
+    
+    /* Elementi interni: si impilano e sono centrati */
+    .info-sito, .audio-container, .bannerino {
+        float: none !important;
+        display: block !important;
+        max-width: 95% !important; 
+        width: auto !important;
+        margin: 15px auto !important; 
+        padding: 10px; 
+    }
+    
+    /* Assicura che l'audio sia responsive */
+    .audio-container audio {
+        width: 100%;
+        max-width: 300px; 
+    }
+
+    /* *** 3. Personaggi Page Fixes (Immagine e Riquadro) *** */
+    
+    /* Immagini Actarus/altri personaggi: grandi e centrate */
+    .img-a-destra {
+        float: none !important;        
+        display: block !important;     
+        width: 100% !important;        
+        max-width: 95% !important;     
+        height: auto !important; 
+        margin: 15px auto !important;  
+    }
+    
+    /* Box Riquadro Personaggi: a tutta larghezza e altezza auto */
+    .riquadro-stacco {
+        height: auto !important; /* Si espande con il contenuto */
+        width: 95% !important; 
+        max-width: none;
+        margin: 20px auto; 
+        padding: 15px;
+    }
+    
+    /* Elementi della lista: impilati verticalmente */
+    .riquadro-stacco li {
+        display: block !important; 
+        width: 100% !important; 
+        text-align: center;
+        padding: 8px 0;
+    }
+
+}
+
+/* responsive per tablet: */
+@media (max-width: 1024px) {
+    /* --- FIX SCROLL E MARGINI --- */
+    body {
+        margin-left: 0 !important; /* Forza l'azzeramento del margine desktop */
+        overflow-x: hidden;
+    }
+    
+    h1 {
+        padding-top: 80px;   /* Spingi giù il titolo */
+        padding-left: 80px;  /* Spingi a destra */
+        padding-right: 15px;
+    }
+
+    /* Menu mobile: Nascondi fuori dallo schermo */
     .menu {
         left: -170px;
-        transition: left 0.3s;
+        transition: left 0.3s ease;
     }
-    
-    /* Menu aperto quando si clicca sul menu ad hamburger */
-    .menu.open {
-        left: 0;
+
+    .hamburger {
+        display: block !important;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1001;
+        background-color: #d32f2f;
+        color: white;
+        border: none;
+        padding: 10px 16px;
+        font-size: 24px;
+        line-height: 1;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
-    
-    /* body senza margine su mobile */
-    body {
-        margin-left: 0;
-    }
-    
+
+    /******** CHECK SE IN USO */   
+    /* Contenitore: Forzato a blocchi verticali, ma con larghezza piena */
     .contenitore {
-        flex-direction: column;
+        display: block; /* Header e Sezione Info si impilano */
+        width: 100%;
+        padding: 10px;
+    }
+
+    .riquadro-stacco {
+        height: auto !important; /* L'altezza si adatta al contenuto */
+        width: 95%; 
+        max-width: none;
+        margin: 20px auto; 
+        padding: 10px;
     }
     
-    .menu ul {
-        flex-direction: column;
+    /* Applichiamo Flexbox all'elenco interno (UL) */
+    .riquadro-stacco ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex; 
+        flex-wrap: wrap; /* I link vanno a capo quando non c'è spazio */
+        justify-content: center; /* Centriamo i link */
+    }
+    
+    .riquadro-stacco li {
+        /* Ogni elemento (link) occuperà metà della larghezza su mobile */
+        width: 45%; 
+        min-width: 120px; /* Larghezza minima per non essere illeggibile */
+        text-align: center;
+        padding: 5px; 
+    }
+    /* --- RIDIMENSIONAMENTO IMMAGINI --- */
+    
+    /* 1. Ingrandire l'immagine principale (copre la larghezza) */
+    .main-image-figure {
+    max-width: 70%; /* Ritorno al 70% come prima */
+    float: left; 
+    margin: 0 15px 15px 0;
+    }
+
+    /* 2. Sezione Info: Usa Flexbox per affiancare Mini-sito, Audio e Bannerino */
+    .sezione-info {
+        width: 100%;
+        max-width: 100% !important;
+        margin-left: 0; 
+        display: flex; 
+        flex-wrap: wrap; /* Se non c'è spazio, vanno a capo */
+        justify-content: space-around;
+        overflow-x: hidden;
+        clear: both; /* assicura che appaia dopo elementi float */
+    }
+
+    /* 3. Ridurre il banner e rendere i blocchi interni compatti */
+    .info-sito, .audio-container, .bannerino {
+        float: none;
+        margin: 15px 5px;
+        width: 45%; 
+        min-width: 200px; /* Larghezza minima per non essere troppo compressi */
+    }
+    
+    .bannerino {
+        /* Grandezza del banner ridotta e centrata */
+        width: 150px; 
+        min-width: 150px;
+        margin: 15px auto; 
     }
 }
 
-/* responsive per tablet */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .contenitore {
-        width: 95%;
-    }
+footer {
+    clear: both; 
+    text-align: right;
+    padding: 20px 20px 20px 0;
+    margin-top: 10px;    
+    background-image: url('img/sfondo-estetico-con-effetto-luce-led-al-neon-sfumato.jpg');
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: rgba(13, 40, 71, 0.8);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffeb3b;     /* giallo brillante */
+    font-size: 0.7em;   /* rimpicciolisce il testo del 30% per il footer */   
+    border-top: none;
+}
+
+footer a {
+    text-decoration: underline; 
+    color: #ffeb3b; 
+    text-decoration-color: #ffeb3b; /* evita che la sottolineatura del link sia di colore diverso */
 }
